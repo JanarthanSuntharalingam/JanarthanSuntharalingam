@@ -1,0 +1,166 @@
+HomeFrame:
+    Homer:
+    StartupPage:
+
+<Homer>:        
+    name : 'open'
+    FitImage:
+        source : 'imgt/road.jpg'
+    MDWidget:
+        size_hint : None, None
+        width : root.width
+        height : root.height/10
+        md_bg_color : [255/255, 255/255, 255/255, 0.4]
+        pos_hint : {"top" : 1}
+        elevation : 10
+        MDIconButton:
+            icon : 'menu'
+            icon_size: '30dp'
+            pos : ('10dp', '615dp')
+            theme_icon_color : "Custom"
+            icon_color : 'black'
+        MDFlatButton:
+            text : 'DL Center'
+            text_color  : 'black'    
+            font_style : 'H4' 
+            theme_text_color : "Custom"
+            pos : ('80dp', '615dp')
+    
+    MDRelativeLayout :
+        size_hint : 1, None
+        height : '60dp'
+        pos_hint : {'bottom' : 1}
+        md_bg_color : 0, 0, 0, 0.4
+        MDBoxLayout:
+            rientation : 'horizontal'
+            padding : '5sp'
+            spacing : '35sp'
+            MDIconButton:
+                icon : 'youtube'
+                icon_size : '33sp'
+                text_color : "blue"
+                on_release : app.root.current = "first"
+            MDIconButton:
+                icon : 'facebook'
+                icon_size : '30sp'
+                text_color : "blue"
+                on_release : app.ttjk()
+            MDIconButton:
+                icon : 'instagram'
+                icon_size : '30sp'
+                text_color : "blue"
+                on_release : app.ttjk()
+            MDIconButton:
+                icon : 'twitter'
+                icon_size : '30sp'
+                text_color : "blue"
+                on_release : app.ttjk()
+               
+    MDLabel:
+        text : "Download Center"
+        font_style : 'H3'
+        font_size : "40dp"
+        pos : ("5dp", "200dp")
+    MDLabel:
+        text : "# get video links"
+        font_size : "20dp"
+        pos : ("5dp", "160dp")
+    MDLabel:
+        text : "# paste the link"
+        font_size : "20dp"
+        pos : ("5dp", "140dp")
+    MDLabel:
+        text : "# press to download"
+        font_size : "20dp"
+        pos : ("5dp", "120dp")
+        
+    MDFlatButton:
+        text : "  Try  "
+        md_bg_color : [255/255, 255/255, 255/255, 0.4]
+        theme_text_color : "Custom"
+        font_size : "30sp"
+        pos_hint : {'center_x' : 0.5, 'center_y' : 0.5}
+        on_press : app.root.current = "first"
+      
+<StartupPage>:
+    name : "first"
+    FitImage :
+        source : "imgt/jar.jpg"
+    MDBoxLayout:
+        orientation : 'vertical'
+        MDWidget:
+            size_hint : None, None
+            width : root.width
+            height : root.height/10
+            md_bg_color : [255/255, 255/255, 255/255, 0.6]
+            pos_hint : {"top" : 1}
+            elevation : 10
+            MDIconButton:
+                icon : 'arrow-left'
+                icon_size: '30dp'
+                pos : ('10dp', '615dp')
+                theme_icon_color : "Custom"
+                icon_color : 'black'
+                on_press : app.root.current = "open"
+            MDFlatButton:
+                text : 'DL Center'
+                text_color  : 'black'    
+                font_style : 'H4' 
+                theme_text_color : "Custom"
+                pos : ('80dp', '615dp')
+        
+        MDGridLayout:
+            cols : 2
+            MDTextField:
+                id : box
+                orientation : "vertical"
+                hint_text : "paste"
+                text_color : "white"
+                line_color : (0/255, 0/255, 0/255, 0.1)
+                mode : "rectangle"
+                width : "300sp"
+                font_size : "15sp"
+                background_color : 'white'   
+            MDIconButton:
+                icon : "send"
+                on_press : app.play_call()
+        MDBoxLayout:
+            orientation : "vertical"       
+            spacing : "35dp"
+            MDCard:
+                id : cad
+                size_hint : None, None
+                width : root.width
+                height : root.height/2
+                radius : [30, 30, 30, 30]     
+                md_bg_color : (255/255, 255/255, 255/255, 0.3)
+                FitImage:
+                    id : imga
+                    source : 'imgt/yt.png'
+            MDRelativeLayout:
+                id : cont
+                size_hint : 1, None
+                height : '60dp'
+                md_bg_color : 0, 0, 0, 0.3
+                padding : "20dp"
+                MDGridLayout:
+                    cols : 3
+                    padding : '10sp'
+                    spacing : '35sp'
+                    MDRoundFlatButton:
+                        id : download
+                        text : 'Download'
+                        md_bg_color : [255/255, 255/255, 255/255, 1]
+                        on_release : app.download_call()
+                                
+                    MDRoundFlatButton:
+                        id : cancel
+                        text : 'cancel'
+                        md_bg_color : [255/255, 255/255, 255/255, 1]
+                        on_release : app.cancel_call()
+                                
+                    MDLabel:
+                        id : size
+                        text : ''
+                                
+      
